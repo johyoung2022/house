@@ -24,6 +24,13 @@ $sql_common = " from {$g5['video_table']} ";
 $sql_search = " where states < 3 and date_format(regdate,'%Y-%m-%d') between '{$fr_date}' and '{$to_date}' ";
 
 
+if ($stx) {
+    $sql_search .= " and ( ";
+    $sql_search .= " {$sfl} like '%{$stx}%'";
+    $sql_search .= " ) ";
+}
+
+
 $sql = " select count(*) as cnt
             {$sql_common}
             {$sql_search} ";
@@ -40,7 +47,6 @@ $sql = " select *
             {$sql_search}
             order by regdate desc
             limit {$from_record}, {$rows} ";
-//echo $sql;
 $result = sql_query($sql);
 
 ?>
@@ -52,9 +58,19 @@ $result = sql_query($sql);
     ~
     <input type="text" name="to_date" value="<?php echo $to_date ?>" id="to_date" class="frm_input" size="11" maxlength="10">
     <label for="to_date" class="sound_only">종료일</label>
-    <input type="submit" value="검색" class="btn_submit">
+    <label for="sfl" class="sound_only">검색대상</label>
+    <select name="sfl" id="sfl">
+        <option value="title"<?php echo get_selected($sfl, "title"); ?>>title</option>
+        <option value="tags"<?php echo get_selected($sfl, "tags"); ?>>tags</option>
+        <option value="description"<?php echo get_selected($sfl, "description"); ?>>상세설명</option>
+    </select>
+    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+    <input type="text" name="stx" value="<?php echo $stx ?>" id="stx"  class="frm_input">
+    <input type="submit" class="btn_submit" value="검색">    
 </div>
+
 </form>
+
 
 
 <div class="tbl_head01 tbl_wrap">
