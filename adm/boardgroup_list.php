@@ -58,22 +58,32 @@ include_once('./admin.head.php');
 $colspan = 10;
 ?>
 
-<div class="local_ov01 local_ov">
+<!-- <div class="local_ov01 local_ov">
     <?php echo $listall ?>
     <span class="btn_ov01"><span class="ov_txt">전체그룹</span><span class="ov_num">  <?php echo number_format($total_count) ?>개</span></span>
-</div>
+</div> -->
 
-<form name="fsearch" id="fsearch" class="local_sch01 local_sch" method="get">
-<label for="sfl" class="sound_only">검색대상</label>
-<select name="sfl" id="sfl">
-    <option value="gr_subject"<?php echo get_selected($sfl, "gr_subject"); ?>>제목</option>
-    <option value="gr_id"<?php echo get_selected($sfl, "gr_id"); ?>>ID</option>
-    <option value="gr_admin"<?php echo get_selected($sfl, "gr_admin"); ?>>그룹관리자</option>
-</select>
-<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-<input type="text" name="stx" id="stx" value="<?php echo $stx ?>" required class="required frm_input">
-<input type="submit" value="검색" class="btn_submit">
-</form>
+<?php 
+    include_once('./board.nav.php');
+?>
+
+<div class="content-box">
+    <p class="explain_text">
+        접근사용 옵션을 설정하시면 관리자가 지정한 회원만 해당 그룹에 접근할 수 있습니다.<br>
+        접근사용 옵션은 해당 그룹에 속한 모든 게시판에 적용됩니다.
+    </p>
+    <form name="fsearch" id="fsearch" class="local_sch01 local_sch" method="get">
+        <label for="sfl" class="sound_only">검색대상</label>
+
+        <select name="sfl" id="sfl">
+            <option value="gr_subject"<?php echo get_selected($sfl, "gr_subject"); ?>>제목</option>
+            <option value="gr_id"<?php echo get_selected($sfl, "gr_id"); ?>>ID</option>
+            <option value="gr_admin"<?php echo get_selected($sfl, "gr_admin"); ?>>그룹관리자</option>
+        </select>
+        <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+        <input type="text" name="stx" id="stx" value="<?php echo $stx ?>" required class="required frm_input">
+        <input type="submit" value="" class="search_btn">
+    </form>
 
 
 <form name="fboardgrouplist" id="fboardgrouplist" action="./boardgroup_list_update.php" onsubmit="return fboardgrouplist_submit(this);" method="post">
@@ -174,14 +184,10 @@ $colspan = 10;
     <input type="submit" name="act_button" onclick="document.pressed=this.value" value="선택삭제" class="btn btn_02">
     <a href="./boardgroup_form.php" class="btn btn_01">게시판그룹 추가</a>
 </div>
+</div>
 </form>
 
-<div class="local_desc01 local_desc">
-    <p>
-        접근사용 옵션을 설정하시면 관리자가 지정한 회원만 해당 그룹에 접근할 수 있습니다.<br>
-        접근사용 옵션은 해당 그룹에 속한 모든 게시판에 적용됩니다.
-    </p>
-</div>
+
 
 <?php
 $pagelist = get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, $_SERVER['SCRIPT_NAME'].'?'.$qstr.'&amp;page=');

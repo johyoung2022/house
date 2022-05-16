@@ -70,11 +70,12 @@ var list_update_php = '';
 var list_delete_php = 'popular_list.php';
 </script>
 
-<div class="local_ov01 local_ov">
+<div class="local_ov01 local_ov content-box">
         <?php echo $listall ?>
         <span class="btn_ov01"><span class="ov_txt">건수</span><span class="ov_num">  <?php echo number_format($total_count) ?>개</span></span>
 </div>
 
+<div class="content-box">
 <form name="fsearch" id="fsearch" class="local_sch01 local_sch" method="get">
 <div class="sch_last">
     <label for="sfl" class="sound_only">검색대상</label>
@@ -84,7 +85,7 @@ var list_delete_php = 'popular_list.php';
     </select>
     <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
     <input type="text" name="stx" value="<?php echo $stx ?>" id="stx" required class="required frm_input">
-    <input type="submit" value="검색" class="btn_submit">
+    <input type="submit" value="" class="search_btn">
 </div>
 </form>
 
@@ -144,7 +145,7 @@ var list_delete_php = 'popular_list.php';
     <button type="submit" class="btn btn_02">선택삭제</button>
 </div>
 <?php } ?>
-
+</div>
 </form>
 
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, "{$_SERVER['SCRIPT_NAME']}?$qstr&amp;page="); ?>

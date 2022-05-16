@@ -35,7 +35,8 @@ include_once(G5_ADMIN_PATH.'/admin.head.php');
 <input type="hidden" name="fo_no" value="<?php echo $write['fo_no']; ?>">
 <input type="hidden" name="get_fg_no" value="<?php echo $fg_no?>">
 
-    <div class="tbl_frm01 tbl_wrap">
+
+    <div class="tbl_frm01 tbl_wrap content-box">
     <table>
     <caption><?php echo $g5['title'];?> 목록</caption>
     <colgroup>

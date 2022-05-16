@@ -49,12 +49,13 @@ $colspan = 12;
 ?>
 
 <section>
-    <h2>신규가입회원 <?php echo $new_member_rows ?>건 목록</h2>
-    <div class="local_desc02 local_desc">
+    
+    <div class="local_desc02 local_desc content-box-desc">
         총회원수 <?php echo number_format($total_count) ?>명 중 차단 <?php echo number_format($intercept_count) ?>명, 탈퇴 : <?php echo number_format($leave_count) ?>명
     </div>
 
-    <div class="tbl_head01 tbl_wrap">
+    <div class="tbl_head01 tbl_wrap content-box">
+    <h2>신규가입회원 <?php echo $new_member_rows ?>건 목록</h2>
         <table>
         <caption>신규가입회원</caption>
         <thead>
@@ -149,9 +150,10 @@ $colspan = 5;
 ?>
 
 <section>
-    <h2>최근게시물</h2>
+    
 
-    <div class="tbl_head01 tbl_wrap">
+    <div class="tbl_head01 tbl_wrap content-box">
+    <h2>최근게시물</h2>
         <table>
         <caption>최근게시물</caption>
         <thead>
@@ -243,12 +245,13 @@ $colspan = 7;
 ?>
 
 <section>
-    <h2>최근 포인트 발생내역</h2>
-    <div class="local_desc02 local_desc">
+    
+    <div class="local_desc02 local_desc content-box-desc">
         전체 <?php echo number_format($total_count) ?> 건 중 <?php echo $new_point_rows ?>건 목록
     </div>
 
-    <div class="tbl_head01 tbl_wrap">
+    <div class="tbl_head01 tbl_wrap content-box">
+    <h2>최근 포인트 발생내역</h2>
         <table>
         <caption>최근 포인트 발생내역</caption>
         <thead>

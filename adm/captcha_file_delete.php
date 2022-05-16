@@ -9,7 +9,7 @@ $g5['title'] = '캡챠파일 일괄삭제';
 include_once('./admin.head.php');
 ?>
 
-<div class="local_desc02 local_desc">
+<div class="local_desc02 local_desc content-box-desc-white">
     <p>
         완료 메세지가 나오기 전에 프로그램의 실행을 중지하지 마십시오.
     </p>
@@ -20,6 +20,9 @@ flush();
 
 if (!$dir=@opendir(G5_DATA_PATH.'/cache')) {
     echo '<p>캐시디렉토리를 열지못했습니다.</p>';
+} else {
+    $list_tag_st = "<ul class=\"session_del\">\n";
+    $list_tag_end = "</ul>\n";
 }
 
 $cnt=0;
@@ -44,8 +47,8 @@ if (is_array($files)) {
     }
 }
 
-echo '<li>완료됨</li></ul>'.PHP_EOL;
-echo '<div class="local_desc01 local_desc"><p><strong>캡챠파일 '.$cnt.'건의 삭제 완료됐습니다.</strong><br>프로그램의 실행을 끝마치셔도 좋습니다.</p></div>'.PHP_EOL;
+echo '</ul>'.PHP_EOL;
+echo '<div class="local_desc01 local_desc content-box-white"><p class="success_text">완료됨</p><p><strong>캡챠파일 '.$cnt.'건의 삭제 완료됐습니다.</strong><br>프로그램의 실행을 끝마치셔도 좋습니다.</p></div>'.PHP_EOL;
 ?>
 
 <?php

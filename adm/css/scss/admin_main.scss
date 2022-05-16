@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import "./_variable";
+@import "./_mixin";
+
+// head
+#hd {
+    #hd_top {
+        #btn_gnb {
+            background: url('../../img/logo_logcompany.png') no-repeat 50% 50%;
+            background-size: 23px;
+        }
+    }
+
+    #gnb {
+        .gnb_ul {
+            background: $gnb_background_color;
+
+            .gnb_li {
+
+                .btn_op.menu-100 {
+                    background: url('../../img/menu-1.png') 50% 50% no-repeat $gnb_background_color;
+                }
+            }
+        }
+    }
+
+}

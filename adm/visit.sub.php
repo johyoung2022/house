@@ -13,14 +13,14 @@ $query_string = $qstr ? '?'.$qstr : '';
 ?>
 
 <form name="fvisit" id="fvisit" class="local_sch03 local_sch" method="get">
-<div class="sch_last">
+<div class="sch_last content-box">
     <strong>기간별검색</strong>
     <input type="text" name="fr_date" value="<?php echo $fr_date ?>" id="fr_date" class="frm_input" size="11" maxlength="10">
     <label for="fr_date" class="sound_only">시작일</label>
     ~
     <input type="text" name="to_date" value="<?php echo $to_date ?>" id="to_date" class="frm_input" size="11" maxlength="10">
     <label for="to_date" class="sound_only">종료일</label>
-    <input type="submit" value="검색" class="btn_submit">
+    <input type="submit" value='' class="search_btn">
 </div>
 </form>
 
@@ -38,6 +38,29 @@ $query_string = $qstr ? '?'.$qstr : '';
     <li><a href="./visit_month.php<?php echo $query_string ?>">월</a></li>
     <li><a href="./visit_year.php<?php echo $query_string ?>">년</a></li>
 </ul>
+<style>
+    .now_on {border-bottom: 3px solid #19d9b4;}
+</style>
+<!-- 선택된 nav 밑줄 추가 -->
+<script>
+    $(function() {
+        var url = location.href;
+        var now_url = new URL(url);
+        var urlParams = now_url.pathname;
+        var arr_findStr = ['visit_list','visit_domain','visit_browser','visit_os',
+        'visit_device','visit_hour','visit_week','visit_date','visit_month','visit_year'];
+        
+        $('.anchor li').each(function(i) {
+            $(this).addClass('h'+i);
+        });
+
+        $.each(arr_findStr,function(i,value) {
+            if(urlParams.indexOf(value) != -1) {
+                $('.h'+i).addClass('now_on');    
+            }
+        });
+    });
+</script>
 
 <script>
 $(function(){

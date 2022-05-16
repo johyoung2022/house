@@ -47,7 +47,7 @@ include_once('./admin.head.php');
 <input type="hidden" name="page" value="<?php echo $page ?>">
 <input type="hidden" name="token" value="">
 
-<div class="tbl_frm01 tbl_wrap">
+<div class="tbl_frm01 tbl_wrap content-box">
     <table>
     <caption><?php echo $g5['title']; ?></caption>
     <colgroup>
@@ -57,7 +57,7 @@ include_once('./admin.head.php');
     <tbody>
     <tr>
         <th scope="row"><label for="gr_id">그룹 ID<?php echo $sound_only ?></label></th>
-        <td><input type="text" name="gr_id" value="<?php echo $group['gr_id'] ?>" id="gr_id" <?php echo $gr_id_attr; ?> class="<?php echo $gr_id_attr; ?> alnum_ frm_input" maxlength="10">
+        <td><input type="text" name="gr_id" value="<?php echo $group['gr_id'] ?>" id="gr_id" <?php echo $gr_id_attr; ?> class="frm_input" maxlength="10">
             <?php
             if ($w=='')
                 echo '영문자, 숫자, _ 만 가능 (공백없이)';
@@ -69,7 +69,7 @@ include_once('./admin.head.php');
     <tr>
         <th scope="row"><label for="gr_subject">그룹 제목<strong class="sound_only"> 필수</strong></label></th>
         <td>
-            <input type="text" name="gr_subject" value="<?php echo get_text($group['gr_subject']) ?>" id="gr_subject" required class="required frm_input" size="80">
+            <input type="text" name="gr_subject" value="<?php echo get_text($group['gr_subject']) ?>" id="gr_subject" required class="frm_input" size="80">
             <?php
             if ($w == 'u')
                 echo '<a href="./board_form.php?gr_id='.$gr_id.'" class="btn_frmline">게시판생성</a>';
@@ -79,12 +79,12 @@ include_once('./admin.head.php');
     <tr>
         <th scope="row"><label for="gr_device">접속기기</label></th>
         <td>
-            <?php echo help("PC 와 모바일 사용을 구분합니다.") ?>
             <select id="gr_device" name="gr_device">
                 <option value="both"<?php echo get_selected($group['gr_device'], 'both', true); ?>>PC와 모바일에서 모두 사용</option>
                 <option value="pc"<?php echo get_selected($group['gr_device'], 'pc'); ?>>PC 전용</option>
                 <option value="mobile"<?php echo get_selected($group['gr_device'], 'mobile'); ?>>모바일 전용</option>
             </select>
+            <?php echo help("PC 와 모바일 사용을 구분합니다.") ?>
         </td>
     </tr>
     <tr>
@@ -139,7 +139,7 @@ include_once('./admin.head.php');
 
 </form>
 
-<div class="local_desc01 local_desc">
+<div class="local_desc01 local_desc content-box-desc">
     <p>
         게시판을 생성하시려면 1개 이상의 게시판그룹이 필요합니다.<br>
         게시판그룹을 이용하시면 더 효과적으로 게시판을 관리할 수 있습니다.

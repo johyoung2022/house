@@ -67,13 +67,19 @@ $result = sql_query($sql);
 $colspan = 16;
 ?>
 
-<div class="local_ov01 local_ov">
+<div class="local_ov01 local_ov content-box"">
     <?php echo $listall ?>
     <span class="btn_ov01"><span class="ov_txt">총회원수 </span><span class="ov_num"> <?php echo number_format($total_count) ?>명 </span></span>
     <a href="?sst=mb_intercept_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01" data-tooltip-text="차단된 순으로 정렬합니다.&#xa;전체 데이터를 출력합니다."> <span class="ov_txt">차단 </span><span class="ov_num"><?php echo number_format($intercept_count) ?>명</span></a>
     <a href="?sst=mb_leave_date&amp;sod=desc&amp;sfl=<?php echo $sfl ?>&amp;stx=<?php echo $stx ?>" class="btn_ov01" data-tooltip-text="탈퇴된 순으로 정렬합니다.&#xa;전체 데이터를 출력합니다."> <span class="ov_txt">탈퇴  </span><span class="ov_num"><?php echo number_format($leave_count) ?>명</span></a>
 </div>
 
+<div class="content-box">
+    <div class="ltbl_head01 tbl_wrap">
+        <p class="explain_text">
+            회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.
+        </p>
+    </div>
 <form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
 
 <label for="sfl" class="sound_only">검색대상</label>
@@ -92,15 +98,13 @@ $colspan = 16;
 </select>
 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
 <input type="text" name="stx" value="<?php echo $stx ?>" id="stx" required class="required frm_input">
-<input type="submit" class="btn_submit" value="검색">
+<input type="submit" class="search_btn" value="">
 
 </form>
 
-<div class="local_desc01 local_desc">
-    <p>
-        회원자료 삭제 시 다른 회원이 기존 회원아이디를 사용하지 못하도록 회원아이디, 이름, 닉네임은 삭제하지 않고 영구 보관합니다.
-    </p>
-</div>
+<div style="padding:8px 20px 10px;font-size:15px;margin-bottom:10px;">
+<link rel="stylesheet" href="<?=G5_THEME_URL?>/css/scss/custom.css">
+<link rel="stylesheet" href="./css/scss/admin_custom.css">
 
 
 <form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
@@ -310,6 +314,7 @@ $colspan = 16;
     <a href="./member_form.php" id="member_add" class="btn btn_01">회원추가</a>
     <?php } ?>
 
+</div>
 </div>
 
 
