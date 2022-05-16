@@ -24,7 +24,7 @@ $query_string = $qstr ? '?'.$qstr : '';
 </div>
 </form>
 
-<ul class="anchor">
+<ul class="anchor content-box">
     <li><a href="./visit_list.php<?php echo $query_string ?>">접속자</a></li>
     <li><a href="./visit_domain.php<?php echo $query_string ?>">도메인</a></li>
     <li><a href="./visit_browser.php<?php echo $query_string ?>">브라우저</a></li>

@@ -305,7 +305,7 @@ if(!$config['cf_mobile_faq_skin']) $config['cf_mobile_faq_skin'] = "basic";
 $g5['title'] = '환경설정';
 include_once ('./admin.head.php');
 
-$pg_anchor = '<ul class="anchor">
+$pg_anchor = '<ul class="anchor content-box">
     <li><a href="#anc_cf_basic">기본환경</a></li>
     <li><a href="#anc_cf_board">게시판기본</a></li>
     <li><a href="#anc_cf_join">회원가입</a></li>
@@ -335,7 +335,6 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
 <input type="hidden" name="token" value="" id="token">
 
 <section id="anc_cf_basic">
-    <h2 class="h2_frm">홈페이지 기본환경 설정</h2>
     <?php echo $pg_anchor ?>
 
     <div class="tbl_frm01 tbl_wrap">

@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "./_variable";
+@import "./mixin";
+
+.board_nav_wrap {
+    margin: 10px 0;
+    
+    ul {
+        display: flex;
+        flex-flow: row;
+
+        li:first-child {
+            a {
+                color: #19d8b4;
+            }
+        }
+    }
+}
