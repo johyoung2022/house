@@ -300,6 +300,17 @@ include_once('./admin.head.php');
                         <?php echo $video['video_key_edit'];?>
                     </td>
                 </tr>
+                <tr>
+                    <td >상태</td>
+                    <td colspan="3"></td>
+                    <td colspan="2">
+                       <select  name="states" id="states">
+                            <option value="0" <?php echo $video['states']==0?"selected":"" ?>>대기</option>     
+                            <option value="1" <?php echo $video['states']==1?"selected":"" ?>>공개</option>
+                            <option value="2" <?php echo $video['states']==2?"selected":"" ?>>비공개</option>
+                        </select>
+                    </td>
+                </tr>
 
 
 
@@ -317,6 +328,35 @@ include_once('./admin.head.php');
 
 
 <script language="javascript">
+$(function(){
+    $("#states").on("change",function(){
+        var valtext = $("#states option:checked").text();
+        var vidx =  $("#vidx").val();
+        if(confirm(valtext +"로 변경 하시겠습니까?"))
+        {
+            $.ajax({
+                    type: "POST",
+                    url: g5_admin_url+"/ajax.videos.php",
+                    data: { mode:'ups',vidx: vidx,states:this.value },
+                    cache: false,
+                    dataType: "json",
+                    success: function(data) {
+                        if(data.resutl=='ok')
+                        {
+                            alert(data.msg);
+                            location.reload();
+                            return true;
+                        }
+                       // console.log(data.resutl);
+                    }
+        });
+            return true;  
+        }else{
+            return false;
+        } 
+    })
+});
+
   var go_list = function(){
       $("#fvideo #w").remove();
       $("#fvideo #vidx").remove();

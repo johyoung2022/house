@@ -52,6 +52,7 @@ if($w == 'AO' || $w == 'AD' || $w == 'AP')
 
 $posts = array();
 $check_keys = array(
+'thunbnail_states',
 'title_states',
 'title_edit',
 'channel_name_states',
@@ -67,7 +68,8 @@ $check_keys = array(
 'channelid_states',
 'channelid_edit',
 'video_key_states',
-'video_key_edit'
+'video_key_edit',
+'states'
 
 );
 
@@ -77,7 +79,8 @@ foreach( $check_keys as $key ){
 
 
 
-$sql_common = "  title_states = '{$posts['title_states']}'";
+$sql_common = " states='{$posts['states']}' , thunbnail_states = '{$posts['thunbnail_states']}'";
+$sql_common .= " ,title_states = '{$posts['title_states']}'";
 if($posts['title_states']=="E")
 {
     $sql_common .= "  ,title_edit = '{$posts['title_edit']}'";

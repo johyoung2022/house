@@ -87,13 +87,13 @@ include_once('./admin.head.php');
                 <tr>
                     <td >썸네일</td>
                     <td>
-                        <input type="radio" name="mb_mailling" value="1" id="mb_mailling_yes" <?php echo $mb_mailling_yes; ?>>
+                        <input type="radio" name="thunbnail_states" value="Y" id="thunbnail_states"  <?php echo $video['thunbnail_states']=='Y'? 'checked':'' ;?> >
                     </td>
                     <td>
-                        <input type="radio" name="mb_mailling" value="1" id="mb_mailling_yes" <?php echo $mb_mailling_yes; ?>>
+                        <input type="radio" name="thunbnail_states" value="E" id="thunbnail_states"  <?php echo $video['thunbnail_states']=='E'? 'checked':'' ;?>>
                     </td>
                     <td>
-                        <input type="radio" name="mb_mailling" value="1" id="mb_mailling_yes" <?php echo $mb_mailling_yes; ?>>
+                        <input type="radio" name="thunbnail_states" value="N" id="thunbnail_states"  <?php echo $video['thunbnail_states']=='N'? 'checked':'' ;?>>
                     </td>
                     <td >
                         <img src="<?php echo $video['thumbnail1'] ?>">
@@ -302,6 +302,17 @@ include_once('./admin.head.php');
                     <input type="text" name="video_key_edit"  id="video_key_edit" value="<?php echo $video['video_key_edit']?>" <?php echo $video['video_key_states']=='E'? '':'disabled' ;?> class="frm_input">
                     </td>
                 </tr>
+                <tr>
+                    <td >상태</td>
+                    <td colspan="6">
+                        <input type="radio" name="states" value="0" id="states" <?php echo $video['states']=='0'? 'checked':'' ;?>  >
+                        대기
+                        <input type="radio" name="states" value="1" id="states" <?php echo $video['states']=='1'? 'checked':'' ;?>  >
+                        공개
+                        <input type="radio" name="states" value="2" id="states" <?php echo $video['states']=='2'? 'checked':'' ;?>  >
+                        비공개
+                    </td>
+                </tr>
 
 
 
@@ -336,8 +347,7 @@ include_once('./admin.head.php');
   };
 
   var go_edit = function(f){
-  
-    $("#fvideo").submit();
+    f.submit();
   };
 
   var go_del  = function(){
@@ -346,7 +356,7 @@ include_once('./admin.head.php');
         $.ajax({
                     type: "POST",
                     url: g5_admin_url+"/ajax.videos.php",
-                    data: { vidx: vidx },
+                    data: { vidx: vidx,states:"3" },
                     cache: false,
                     async: false,
                     dataType: "json",
